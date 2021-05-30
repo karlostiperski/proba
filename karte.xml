@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 
-<Karte>
-   <Karta>
-      <Naslov>OBELISK THE TORMENTOR</Naslov>
-      <Slika>1.jpg</Slika>
-      <Vrsta>Monster</Vrsta>
+<KARTE>
+   <KARTA>
+      <NASLOV>OBELISK THE TORMENTOR</NASLOV>
+      <SLIKA>1.jpg</SLIKA>
+      <VRSTA>Monster</VRSTA>
       <LVL>10</LVL>
       <ATK>4000</ATK>
       <DEF>4000</DEF>
-      <Godina>2003</Godina>
-      <Izdanje>1</Izdanje>
-      <Cijena>300 HRK</Cijena>
+      <GODINA>2003</GODINA>
+      <IZDANJE>1</IZDANJE>
+      <CIJENA>300 HRK</CIJENA>
   </Karta>
     <Karta>
       <Naslov>SLIFER THE SKY DRAGON</Naslov>
