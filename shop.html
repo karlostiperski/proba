@@ -4,7 +4,16 @@
     <title>Shop</title>
     <link href="http://fonts.googleapis.com/css?family=Raleway:400,200,500,600,700,800,300" rel="stylesheet">
     <link href="stil.css" rel="stylesheet" type="text/css" media="all">
-    
+    <style>
+        table,th,td {
+          border : 1px solid black;
+          border-collapse: collapse;
+        }
+        th,td {
+          padding: 5px;
+        }
+        </style>
+
     </head>
     <body>
         <div id="wrapper">
@@ -31,115 +40,37 @@
                 </div>
             </div>
 
+<button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
+<br><br>
+<table id="demo"></table>
 
-            <div id="page" class="container">
-                <div id="content">
-                    <div class="title">
-                        <h2>OBELISK THE TORMENTOR</h2>
-                         </div>
-                    <img src="1.jpg">
-        
-
-                    <p>Vrsta: Monster</p>
-                    <p>LVL: 10</p>
-                    <p>ATK: 4000</p>
-                    <p>DEF: 4000</p>
-                    <p>Godina: 2003</p>
-                    <p>Izdanje: 1</p>
-                    <p>Cijena: 300 HRK</p>
-
-                    
-                    <a href="#">KUPI</a><br>
-
-                    <div id="page" class="container">
-                        <div id="content">
-                            <div class="title">
-                                <h2>SLIFER THE SKY DRAGON</h2>
-                                 </div>
-                            <img src="2.jpg">
-                
-                            
-                    <p>Vrsta: Monster</p>
-                    <p>LVL: 10</p>
-                    <p>ATK: N/A</p>
-                    <p>DEF: N/A</p>
-                    <p>Godina: 2003</p>
-                    <p>Izdanje: 1</p>
-                    <p>Cijena: 250 HRK</p>
-                    <a href="#">KUPI</a><br>
-
-
-                            <div id="page" class="container">
-                                <div id="content">
-                                    <div class="title">
-                                        <h2>MIRROR FORCE</h2>
-                                         </div>
-                                    <img src="3.jpg">
-                        
-                                    
-                    <p>Vrsta: Trap</p>
-                    <p>LVL: N/A</p>
-                    <p>ATK: N/A</p>
-                    <p>DEF: N/A</p>
-                    <p>Godina: 2001</p>
-                    <p>Izdanje: 1</p>
-                    <p>Cijena: 400 HRK</p>
-                    <a href="#">KUPI</a><br>
-
-
-                                    <div id="page" class="container">
-                                        <div id="content">
-                                            <div class="title">
-                                                <h2>POLYMERIZATION</h2>
-                                                 </div>
-                                            <img src="4.jpg">
-                                
-                                            
-                                            <p>Vrsta: Spel</p>
-                                            <p>LVL: N/A</p>
-                                            <p>ATK: N/A</p>
-                                            <p>DEF: N/A</p>
-                                            <p>Godina: 2000</p>
-                                            <p>Izdanje: 1</p>
-                                            <p>Cijena: 600 HRK</p>
-                                            <a href="#">KUPI</a><br>
-
-
-
-                                            <div id="page" class="container">
-                                                <div id="content">
-                                                    <div class="title">
-                                                        <h2>OJAMA BLACK</h2>
-                                                         </div>
-                                                    <img src="5.jpg">
-                                        
-                                                    
-                    <p>Vrsta: Monster</p>
-                    <p>LVL: 1</p>
-                    <p>ATK: 0</p>
-                    <p>DEF: 1000</p>
-                    <p>Godina: 2006</p>
-                    <p>Izdanje: 2</p>
-                    <p>Cijena: 5 HRK</p>
-                    <a href="#">KUPI</a><br>
-
-
-                                                    <div id="page" class="container">
-                                                        <div id="content">
-                                                            <div class="title">
-                                                                <h2>BLUE-EYES WHITE DRAGON</h2>
-                                                                 </div>
-                                                            <img src="6.jpg">
-                                                
-                                                            
-                    <p>Vrsta: Monster</p>
-                    <p>LVL: 7</p>
-                    <p>ATK: 3000</p>
-                    <p>DEF: 2500</p>
-                    <p>Godina: 2003</p>
-                    <p>Izdanje: 1</p>
-                    <p>Cijena: 1000 HRK</p>
-                    <a href="#">KUPI</a><br>
+<script>
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xmlhttp.open("GET", "test.xml", true);
+  xmlhttp.send();
+}
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Artist</th><th>Title</th></tr>";
+  var x = xmlDoc.getElementsByTagName("CD");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+            
         
 
             
