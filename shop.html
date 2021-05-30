@@ -62,11 +62,11 @@ function myFunction(xml) {
   var x = xmlDoc.getElementsByTagName("KARTA");
   for (i = 0; i <x.length; i++) { 
     table += "<tr><td>" +
-        x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+        x[i].getElementsByTagName("NASLOV")[0].childNodes[0].nodeValue +
     "</td><td>" +
-    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    x[i].getElementsByTagName("VRSTA")[0].childNodes[0].nodeValue +
     "</td><td>" +
-        x[i].getElementsByTagName("COUNTRY")[0].childNodes[0].nodeValue +   
+        x[i].getElementsByTagName("LVL")[0].childNodes[0].nodeValue +   
     "</td></tr>" 
     ;
   }
