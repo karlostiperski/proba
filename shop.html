@@ -58,7 +58,7 @@ function loadXMLDoc() {
 function myFunction(xml) {
   var i;
   var xmlDoc = xml.responseXML;
-  var table="<tr><th>Naziv</th><th>Godina</th><th>Cijena</th></tr>";
+  var table="<tr><th>Naziv</th><th>Vrsta</th><th>LVL</th><th>ATK</th><th>DEF</th><th>Godina</th><th>Izdanje</th><th>Cijena</th></tr>";
   var x = xmlDoc.getElementsByTagName("KARTA");
   for (i = 0; i <x.length; i++) { 
     table += "<tr><td>" +
@@ -66,7 +66,17 @@ function myFunction(xml) {
     "</td><td>" +
     x[i].getElementsByTagName("VRSTA")[0].childNodes[0].nodeValue +
     "</td><td>" +
-        x[i].getElementsByTagName("LVL")[0].childNodes[0].nodeValue +   
+     x[i].getElementsByTagName("LVL")[0].childNodes[0].nodeValue +   
+     "</td><td>" +
+     x[i].getElementsByTagName("ATK")[0].childNodes[0].nodeValue + 
+     "</td><td>" +
+     x[i].getElementsByTagName("DEF")[0].childNodes[0].nodeValue + 
+     "</td><td>" +
+     x[i].getElementsByTagName("GODINA")[0].childNodes[0].nodeValue + 
+     "</td><td>" +
+    x[i].getElementsByTagName("IZDANJE")[0].childNodes[0].nodeValue + 
+     "</td><td>" +
+     x[i].getElementsByTagName("CIJENA")[0].childNodes[0].nodeValue + 
     "</td></tr>" 
     ;
   }
